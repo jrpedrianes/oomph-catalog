@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
+    name="grails"
+    label="Grails">
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Variables"/>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Compile configuration"/>
+  <setupTask
+      xsi:type="setup.targlets:TargletTask">
+    <targlet
+        name="Eclipse Platform"
+        activeRepositoryList="${eclipse.target.platform}">
+      <repositoryList
+          name="None"/>
+      <repositoryList
+          name="Mars"/>
+      <repositoryList
+          name="Luna">
+        <repository
+            url="http://dist.springsource.com/release/TOOLS/update/3.6.4.RELEASE/e4.4/"/>
+      </repositoryList>
+    </targlet>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="IDE features and plug-ins selection">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Grails">
+      <requirement
+          name="org.grails.ide.eclipse.feature.group"/>
+      <description></description>
+    </setupTask>
+  </setupTask>
+  <stream name="master"/>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>Grails</description>
+</setup:Project>

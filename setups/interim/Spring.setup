@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
+    name="spring"
+    label="Spring">
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Variables"/>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Compile configuration">
+    <setupTask
+        xsi:type="jdt:JRETask"
+        version="JavaSE-1.7"
+        location="${jre.location-1.7}">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="IDE features and plug-ins selection">
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.eclipse.m2e.wtp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.jst.server_adapters.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.jst.server_adapters.ext.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.jst.server_ui.feature.feature.group"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="STS">
+      <requirement
+          name="org.springsource.ide.eclipse.commons.quicksearch.feature.feature.group"/>
+      <requirement
+          name="org.springsource.ide.eclipse.dashboard.feature.group"/>
+      <requirement
+          name="org.springframework.ide.eclipse.feature.feature.group"/>
+      <requirement
+          name="org.springframework.ide.eclipse.autowire.feature.feature.group"/>
+      <requirement
+          name="org.springframework.ide.eclipse.aop.feature.feature.group"/>
+      <requirement
+          name="org.springframework.ide.eclipse.data.feature.feature.group"/>
+      <requirement
+          name="org.springframework.ide.eclipse.security.feature.feature.group"/>
+      <repository
+          url="http://dist.springsource.com/release/TOOLS/update/e4.5/"/>
+    </setupTask>
+  </setupTask>
+  <stream name="master"/>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>Spring</description>
+</setup:Project>
