@@ -72,7 +72,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.repository.target.generator.setup"
-        value="=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->/R:/eclipse-oomph/oomph-catalog/setups/"
+        value="=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->https://raw.githubusercontent.com/jrpedrianes/oomph-catalog/master/setups/"
         vm="true"/>
     <setupTask
         xsi:type="setup:EclipseIniTask"
